@@ -1,0 +1,19 @@
+{
+    "name": "xtend-laravel/feature-lunar-shipping-providers",
+    "description": "Lunar Shipping Providers",
+    "type": "xtend-feature",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "XtendLunar\\Features\\ShippingProviders\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Adam Lee",
+            "email": "adam@codelabx.ltd"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
