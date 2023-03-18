@@ -42,7 +42,7 @@ class ShippingProvidersProvider extends XtendFeatureProvider
         Event::listen(LocaleUpdated::class, function () {
             $shippingSection = Menu::slot('sidebar')->section('shipping')->name('Shipping');
             $shippingSection->addItem(function ($item) {
-                $item->name('Carriers')
+                $item->name('Carriers List')
                      ->handle('hub.shipping-providers')
                      ->route('hub.shipping-providers.index')
                      ->gate('settings:core')
@@ -61,7 +61,6 @@ class ShippingProvidersProvider extends XtendFeatureProvider
             })->each(callback: function (string $class) use ($shippingSection): void {
                 $reflection = new \ReflectionClass($class);
                 $name = $reflection->getStaticPropertyValue('name');
-                $provider = $reflection->getStaticPropertyValue('provider');
                 $inMenu = $reflection->getStaticPropertyValue('showInMenu');
                 $route = $reflection->getStaticPropertyValue('route');
                 if (! $inMenu) {

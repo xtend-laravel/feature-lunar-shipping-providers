@@ -9,7 +9,7 @@ use XtendLunar\Features\ShippingProviders\Base\ShippingProvider;
  */
 class UpsProvider extends ShippingProvider
 {
-    protected static string $name = 'UPS';
+    protected static string $name = 'UPS Carrier';
 
     protected static string $provider = 'ups';
 
