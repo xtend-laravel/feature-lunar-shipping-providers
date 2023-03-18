@@ -11,6 +11,9 @@ use Livewire\Livewire;
 use Lunar\Base\ShippingModifiers;
 use Lunar\Hub\Facades\Menu;
 use Symfony\Component\Finder\SplFileInfo;
+use Xtend\Extensions\Lunar\Admin\Livewire\Components\Settings\Shippings\Tables\ListShippingLocations;
+use Xtend\Extensions\Lunar\Admin\Livewire\Components\Settings\Shippings\Tables\ListShippingOptions;
+use Xtend\Extensions\Lunar\Admin\Livewire\Components\Settings\Shippings\Tables\ListShippingZones;
 use Xtend\Extensions\Lunar\Core\ShippingModifiers\FreeShipping;
 use Xtend\Extensions\Lunar\Slots\ShippingSlot;
 use XtendLunar\Features\ShippingProviders\Base\ShippingProvider;
@@ -29,6 +32,11 @@ class ShippingProvidersProvider extends XtendFeatureProvider
     {
         Livewire::component('hub.components.shipping-providers.table', ShippingProvidersTable::class);
         Livewire::component('hub.orders.slots.shipping-slot', ShippingSlot::class);
+
+        Livewire::component('hub.components.tables.list-shipping-zones', ListShippingZones::class);
+        Livewire::component('hub.components.tables.list-shipping-locations', ListShippingLocations::class);
+        Livewire::component('hub.components.tables.list-shipping-options', ListShippingOptions::class);
+
         $shippingModifiers = resolve(ShippingModifiers::class);
         $shippingModifiers->add(FreeShipping::class);
 

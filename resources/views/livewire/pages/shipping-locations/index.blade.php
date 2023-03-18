@@ -3,5 +3,5 @@
         @include('adminhub::partials.navigation.shippings')
     </div>
 
-    @livewire('hub.components.settings.shippings.tables.list-shipping-locations')
+    @livewire('hub.components.tables.list-shipping-locations')
 </div>
