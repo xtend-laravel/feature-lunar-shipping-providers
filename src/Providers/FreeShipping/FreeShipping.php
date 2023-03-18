@@ -12,4 +12,6 @@ class FreeShipping extends ShippingProvider
     protected static string $name = 'Free Shipping';
 
     protected static string $provider = 'free-shipping';
+
+    protected static bool $showInMenu = false;
 }

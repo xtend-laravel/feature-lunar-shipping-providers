@@ -42,11 +42,11 @@ class ShippingProvidersProvider extends XtendFeatureProvider
         Event::listen(LocaleUpdated::class, function () {
             $shippingSection = Menu::slot('sidebar')->section('shipping')->name('Shipping');
             $shippingSection->addItem(function ($item) {
-                $item->name('Providers')
+                $item->name('Carriers')
                      ->handle('hub.shipping-providers')
                      ->route('hub.shipping-providers.index')
                      ->gate('settings:core')
-                     ->icon('shipping-box-01');
+                     ->icon('truck');
             });
 
             collect(app(Filesystem::class)->allFiles(__DIR__.'/Providers'))
@@ -62,11 +62,18 @@ class ShippingProvidersProvider extends XtendFeatureProvider
                 $reflection = new \ReflectionClass($class);
                 $name = $reflection->getStaticPropertyValue('name');
                 $provider = $reflection->getStaticPropertyValue('provider');
+                $inMenu = $reflection->getStaticPropertyValue('showInMenu');
+                $route = $reflection->getStaticPropertyValue('route');
+                if (! $inMenu) {
+                    return;
+                }
+
                 $shippingSection->addItem(
                     fn ($item) => $item
                         ->name($name)
-                        ->handle('hub.shipping-providers.'.$provider)
-                        ->route('hub.shipping-provider')
+                        ->handle('hub.ups')
+                        ->gate('settings:core')
+                        ->route($route)
                 );
             });
         });

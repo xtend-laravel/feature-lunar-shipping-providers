@@ -12,4 +12,6 @@ class StorePickup extends ShippingProvider
     protected static string $name = 'Store Pickup';
 
     protected static string $provider = 'store-pickup';
+
+    protected static bool $showInMenu = false;
 }

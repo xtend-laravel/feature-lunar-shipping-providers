@@ -10,7 +10,7 @@ abstract class ShippingProvider extends ShippingModifier
 
     protected static string $provider;
 
-    // abstract protected function rules(): array;
+    protected static bool $showInMenu = false;
 
-    // abstract protected function rates(): array;
+    protected static string $route;
 }
