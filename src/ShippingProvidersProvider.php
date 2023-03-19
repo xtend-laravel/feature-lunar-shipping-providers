@@ -46,16 +46,22 @@ class ShippingProvidersProvider extends XtendFeatureProvider
 
     protected function registerWithSidebarMenu(): void
     {
-        // Note: We listen to LocaleUpdated event to make sure translations are loaded and menu items are all available
         Event::listen(LocaleUpdated::class, function () {
-            $shippingSection = Menu::slot('sidebar')->section('shipping')->name('Shipping');
-            $shippingSection->addItem(function ($item) {
-                $item->name('Carriers List')
-                     ->handle('hub.shipping-providers')
-                     ->route('hub.shipping-providers.index')
-                     ->gate('settings:core')
-                     ->icon('truck');
-            });
+            // $shippingSection = Menu::slot('sidebar')->section('shipping')->name('Shipping');
+            // $shippingSection->addItem(function ($item) {
+            //     $item->name('Carriers List')
+            //          ->handle('hub.shipping-providers')
+            //          ->route('hub.shipping-providers.index')
+            //          ->gate('settings:core')
+            //          ->icon('truck');
+            // });
+
+            $shippingSection = Menu::slot('sidebar')
+                ->group('hub.configure')
+                ->section('hub.shipping-providers')
+                ->name('Shipping')
+                ->route('hub.shipping-providers.index')
+                ->icon('truck');
 
             collect(app(Filesystem::class)->allFiles(__DIR__.'/Providers'))
                 ->map(function (SplFileInfo $file): string {
