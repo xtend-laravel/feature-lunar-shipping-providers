@@ -28,6 +28,11 @@ class ShippingProvidersTable extends Component implements Tables\Contracts\HasTa
     {
         return [
             Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
+            Tables\Columns\IconColumn::make('is_enabled')
+                ->label('Enabled')
+                ->boolean()
+                ->trueIcon('heroicon-o-badge-check')
+                ->falseIcon('heroicon-o-x-circle'),
         ];
     }
 

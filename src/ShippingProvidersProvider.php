@@ -11,12 +11,12 @@ use Livewire\Livewire;
 use Lunar\Base\ShippingModifiers;
 use Lunar\Hub\Facades\Menu;
 use Symfony\Component\Finder\SplFileInfo;
-use Xtend\Extensions\Lunar\Admin\Livewire\Components\Settings\Shippings\Tables\ListShippingLocations;
-use Xtend\Extensions\Lunar\Admin\Livewire\Components\Settings\Shippings\Tables\ListShippingOptions;
-use Xtend\Extensions\Lunar\Admin\Livewire\Components\Settings\Shippings\Tables\ListShippingZones;
 use Xtend\Extensions\Lunar\Core\ShippingModifiers\FreeShipping;
 use Xtend\Extensions\Lunar\Slots\ShippingSlot;
 use XtendLunar\Features\ShippingProviders\Base\ShippingProvider;
+use XtendLunar\Features\ShippingProviders\Livewire\Components\ListShippingLocations;
+use XtendLunar\Features\ShippingProviders\Livewire\Components\ListShippingOptions;
+use XtendLunar\Features\ShippingProviders\Livewire\Components\ListShippingZones;
 use XtendLunar\Features\ShippingProviders\Livewire\Components\ShippingProvidersTable;
 
 class ShippingProvidersProvider extends XtendFeatureProvider
