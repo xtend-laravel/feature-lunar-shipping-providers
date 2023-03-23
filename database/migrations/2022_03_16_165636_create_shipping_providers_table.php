@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create($this->prefix.'shipping_providers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('provider_key');
             $table->text('description')->nullable();
-            $table->tinyInteger('is_enabled')->default(1);
+            $table->boolean('is_enabled')->default(true);
             $table->timestamps();
         });
     }

@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create($this->prefix.'shipping_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId($this->prefix.'zone_id')->nullable()->constrained($this->prefix.'shipping_zones');
-            $table->foreignId($this->prefix.'location_id')->nullable()->constrained($this->prefix.'shipping_locations');
+            $table->foreignId('provider_id')->nullable()->constrained($this->prefix.'shipping_providers');
+            $table->foreignId('zone_id')->nullable()->constrained($this->prefix.'shipping_zones');
+            $table->foreignId('location_id')->nullable()->constrained($this->prefix.'shipping_locations');
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('identifier')->unique();
