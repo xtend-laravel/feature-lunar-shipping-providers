@@ -14,6 +14,6 @@ class ShippingProvider extends BaseModel
 
     public function options(): HasMany
     {
-        return $this->hasMany(ShippingOption::class, 'provider_id');
+        return $this->hasMany(ShippingOption::class, 'provider_id')->where('is_enabled', true);
     }
 }
