@@ -15,11 +15,10 @@ class ShippingProviderSeeder extends Seeder
     public function run()
     {
         collect([
-            ['name' => 'Free Shipping'],
-            ['name' => 'Store Pickup'],
-            ['name' => 'UPS'],
+            ['name' => 'Free Shipping', 'identifier' => 'free-shipping'],
+            ['name' => 'Store Pickup', 'identifier' => 'store-pickup'],
         ])->each(function ($provider) {
-            ShippingProvider::create($provider);
+            ShippingProvider::query()->create($provider);
         });
     }
 }
